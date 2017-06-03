@@ -63,6 +63,10 @@
 
 <script>
   /*import '@/styles/login.css';*/
+  import Vue from 'vue'
+  import { Button, Select } from 'element-ui'
+  Vue.use(Button)
+  Vue.use(Select)
   export default {
     data () {
       return {
