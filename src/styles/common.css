@@ -1,0 +1,139 @@
+@charset "utf-8";
+*{margin: 0;padding: 0;}
+body{min-width: 1200px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {margin: 0;padding: 0;}
+html {font-family: "Microsoft Yahei",SimSun,SimHei,Tahoma, Arial, Helvetica, STHeiti;font-size: 12px;/*background: #ffffff;*/-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}
+table {border-collapse: collapse;border-spacing: 0;font-size: inherit;}
+a{text-decoration: none;}
+a:hover {text-decoration:none;outline: 0;}
+a:active {outline: 0;}
+img,button,input { border: none;height: auto;vertical-align: middle;}
+li,dl,dt,dd{list-style-type:none;}
+input,textarea,select,option,textarea,em,h1,h2,h3,h4,h4,h6,strong,span,li,dl,dt,td{font-family:"Microsoft YaHei",SimSun,SimHei;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.clearfix:before, .clearfix:after {content:" ";display:table}
+.clearfix:after {clear:both}
+.clearfix {*zoom: 1;}
+.fl{ float:left;}
+.fr{ float:right;}
+.font-blue{color:#004f99}
+.font-lblue{ color:#30a8e1;}
+.font-lgreen{ color:#6da729;}
+.font-lorange{ color:#f39700}
+.lbluebg{ background:#eaf8fe;}
+.lgreenbg{ background:#ebf5d5;}
+.lorangebg{ background:#fbedd7;}
+.por{ position:relative}
+.mr2{ margin-right:2px;}
+.mr5{ margin-right:5px;}
+.mr10{ margin-right:10px;}
+.ml15{ margin-left:15px;}
+.ml28{ margin-left:28px;}
+.mb5{ margin-bottom:5px;}
+.pt16{ padding-top:16px;}
+.pt10{ padding-top:10px;}
+.pb20{ padding-bottom:20px;}
+.mui-ellipsis-2{display: -webkit-box;overflow: hidden;white-space: normal !important;text-overflow: ellipsis;word-wrap: break-word;
+-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+.b-radius{ border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
+.b-radius6{ border-radius:6px;-o-border-radius:6px;-webkit-border-radius:6px;-moz-border-radius:6px;}
+.w26{ width:26%}
+.w33{ width:33.3%}
+.w40{ width:40%}
+
+
+.bg-f0{ background-color:#f0f0f0}
+.border-e2{ border:1px solid #e2e2e2}
+.text-right{ text-align:right}
+
+
+.big-icons{ position:relative; display:inline-block; background-image:url(../assets/images/big-icons.png); background-repeat:no-repeat;}
+.icon-dlcoal{ background-position:0 0; width:44px; height:56px;top:12px;margin-right:10px}
+.icon-wycoal{background-position:0 -70px; width:44px; height:38px;top:10px;margin-right:10px}
+.icon-ljcoal{background-position:0 -119px; width:44px; height:51px;top:14px;margin-right:10px}
+
+.icons{ position:relative; display:inline-block; background-image:url(../assets/images/icons.png); background-repeat:no-repeat;}
+.icon-home{ background-position:0 0; width:15px; height:15px;top:1px;margin-right:2px}
+.icon-phone{ background-position:0 -39px; width:18px; height:18px;top:3px; margin-right:3px;}
+.icon-search{ background-position:0 -62px; width:20px; height:20px;top:4px; margin-right:3px;}
+.icon-dlm{ background-position:-91px 0; width:20px; height:25px; margin-right:12px; top:4px}
+.icon-wym{ background-position:-117px 0; width:24px; height:23px; margin-right:12px;top:4px}
+.icon-ljm{ background-position:-145px 0; width:24px; height:27px; margin-right:12px;top:4px}
+.icon-notice{background-position:0 -87px; width:22px; height:18px; margin-right:10px;top:4px}
+.icon-company{background-position:0 -111px; width:18px; height:20px; margin-right:3px;top:2px}
+.icon-dynamic{background-position:-92px -30px; width:20px; height:18px; margin-right:3px;top:2px}
+.icon-place{ background-position:0 -146px; width:14px; height:16px; margin-right:2px; top:3px;}
+.icon-link{background-position:-31px 0; width:22px; height:22px; margin-right:4px;top:4px}
+.icon-supply{background-position:-29px -27px; width:22px; height:22px; margin-right:5px;top:4px}
+.icon-demand{background-position:-30px -57px; width:22px; height:24px; margin-right:5px;top:4px}
+.icon-logistics{background-position:-28px -93px; width:26px; height:19px; margin-right:5px;top:4px}
+.icon-help{background-position:-60px 0; width:22px; height:24px; margin-right:5px;top:5px}
+.icon-follow{background-position:-60px -29px; width:22px; height:22px; margin-right:5px;top:5px}
+.icon-bigcompany{ background-position:0 -164px; width:26px; height:30px; margin-right:3px; top:4px;}
+.icon-blockplace{background-position:-33px -117px; width:13px; height:16px; margin-right:4px; top:3px;}
+.icon-product{background-position:-33px -140px; width:13px; height:16px; margin-right:4px; top:4px;}
+.icon-ssearch{background-position:-33px -165px; width:16px; height:16px; margin-right:4px; top:3px;}
+.icon-up{ background-position:-32px -187px; width:8px; height:13px; margin-left:4px; top:2px;}
+.icon-down{ background-position:-44px -187px; width:8px; height:13px; margin-left:4px; top:2px;}
+.icon-query{ background-position:-122px -31px; width:12px; height:14px; margin-right:3px; top:4px;}
+.icon-tup{background-position:-118px -46px; width:10px; height:6px; margin-left:4px;top:-2px;}
+.icon-tdown{background-position:-130px -46px; width:10px; height:6px; margin-left:4px;top:-2px;}
+.icon-yyzz{background-position:-90px -58px; width:24px; height:18px; margin-right:5px; top:5px;}
+.icon-zzjgdmz{background-position:-89px -80px; width:26px; height:18px; margin-right:5px; top:4px;}
+.icon-swdjz{background-position:-89px -103px; width:26px; height:18px; margin-right:5px; top:4px;}
+.icon-currentplace{background-position:-96px -154px; width:12px; height:16px; margin-right:4px; top:4px;}
+.icon-jgplace{background-position:-95px -176px; width:15px; height:16px; margin-right:4px; top:3px; }
+.icon-browse{background-position:-163px -148px; width:20px; height:12px; margin-right:4px; float:left;top:4px;}
+.icon-buy{background-position:-145px -33px; width:50px; height:50px; margin-right:8px; float:left;}
+.icon-mysupply{background-position:-145px -87px; width:50px; height:50px; margin-right:8px; float:left;}
+.icon-text{background-position:-120px -146px; width:33px; height:40px; margin-right:8px; float:left}
+.icon-bignotice{background-position:-204px -50px; width:40px; height:40px;}
+.icon-endtime{ position:absolute; width:54px; height:40px; left:0; top:0; background-position:-216px 0;}
+.icon-leftshadow{ position:absolute; left:0; top:-11px; background-position:-160px -172px; width:10px; height:11px;}
+.icon-rightshadow{ position:absolute; right:0; top:-11px; background-position:-173px -172px; width:10px; height:11px;}
+.icon-bqprice{position:absolute; right:56px; top:18px; background-position:-202px -99px; width:55px; height:24px;}
+.icon-infonotice{ background-position:-206px -138px; width:17px; height:14px; float:left; margin-right:5px; margin-top:18px;}
+.icon-qiyun{ background-position:-283px 0; width:76px; height:32px;}
+.icon-jiangyun{ background-position:-283px -43px; width:76px; height:32px;}
+.icon-haiyun{ background-position:-283px -86px; width:76px; height:32px;}
+.icon-telephone{background-position:-240px -165px; width:18px; height:18px; top:4px; margin-right:5px}
+
+
+.icon-clock{ background-position:-89px -124px; width:28px; height:24px; margin-right:6px; top:4px;}
+.icon-orangeshadow{ background-position:-119px -54px; width:6px; height:56px;}
+.icon-grayshadow{ background-position:-127px -54px; width:6px; height:56px;}
+
+.icon-user{ background-position:-62px -58px; width:20px; height:20px; top:16%; left:50%; margin-left:-10px; margin-top:-10px;}
+.icon-pwd{ background-position:-62px -85px; width:20px; height:22px; top:16%; left:50%; margin-left:-10px; margin-top:-11px;}
+.icon-qrpwd{background-position:-62px -115px; width:20px; height:22px; top:16%; left:50%; margin-left:-10px; margin-top:-11px;}
+.icon-tel{background-position:-63px -144px; width:16px; height:25px; top:16%; left:50%; margin-left:-8px; margin-top:-12.5px;}
+.icon-yzm{background-position:-61px -176px; width:20px; height:22px; top:16%; left:50%; margin-left:-10px; margin-top:-11px;}
+.icon-mailbox{background-position:-59px -205px; width:24px; height:17px; top:16%; left:50%; margin-left:-12px; margin-top:-8.5px;}
+
+
+*+html .icon-home{ top:-3px;}
+*+html .icon-phone{ top:0;}
+*+html .icon-search{ top:0;}
+*+html .icon-notice{ top:0;}
+*+html .icon-company{ top:0;}
+*+html .icon-dynamic{ top:0;}
+*+html .icon-place{ top:-1px;}
+*+html .icon-dlm{ top:4px;}
+*+html .icon-wym{ top:0;}
+*+html .icon-ljm{ top:10px;}
+*+html .icon-supply{ top:0;}
+*+html .icon-demand{ top:0;}
+*+html .icon-logistics{ top:0;}
+*+html .icon-help{ top:3px;}
+*+html .icon-follow{ top:3px;}
+*+html .icon-bigcompany,*+html .icon-product,*+html .icon-jgplace,*+html .icon-currentplace{top:0;}
+*+html .icon-blockplace,*+html .icon-ssearch{top:-1px;}
+*+html .icon-up,*+html .icon-down{top:-2px;}
+*+html .icon-yyzz{ top:1px;}
+*+html .icon-zzjgdmz{ top:1px;}
+*+html .icon-swdjz{ top:1px;}
+*+html .icon-telephone,*+html .icon-query{top:0}
+*+html .icon-tup,*+html .icon-tdown{top:-6px}
+
+
+
+

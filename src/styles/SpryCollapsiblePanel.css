@@ -1,0 +1,50 @@
+@charset "UTF-8";
+.CollapsiblePanel {
+	margin: 0px 0 12px 0;
+	padding: 0px;
+}
+.CollapsiblePanelTab {
+	font-size:14px;
+	font-weight:600;
+	color:#4c4c4c;
+	margin-bottom: 18px;
+	padding: 4px 10px 5px 30px;
+	cursor: pointer;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+}
+.CollapsiblePanelContent {
+	position:relative;
+	margin: 0px;
+	padding: 0px;
+	padding: 18px 20px;
+	border: 1px solid #e0dddd;
+	border-radius:4px;
+	-o-border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	background:#f6f6f6;
+	height: auto !important;
+
+}
+.CollapsiblePanelContent p{ font-size:12px; line-height:24px;}
+i.s_arrowUp{ position:absolute; top:-10px; left:24px; width:24px; height:10px; background:url(../assets/images/s_arrowUp.png) no-repeat;}
+.CollapsiblePanelTab a {
+	color: black;
+	text-decoration: none;
+}
+.CollapsiblePanelOpen .CollapsiblePanelTab {
+	background:url(../assets/images/pro_up.png) center left no-repeat;
+}
+.CollapsiblePanelClosed .CollapsiblePanelTab {
+    background:url(../assets/images/pro_down.png) center left no-repeat;
+}
+
+
+.CollapsiblePanelTabHover,  .CollapsiblePanelOpen .CollapsiblePanelTabHover {
+	background-color: #fff;
+}
+
+.CollapsiblePanelFocused .CollapsiblePanelTab {
+	background-color: #3399FF;
+}
