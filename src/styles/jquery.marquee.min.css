@@ -1,0 +1,17 @@
+ul.marquee {
+  display: block;
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+  height: 22px;
+}
+
+ul.marquee li {
+  position: absolute;
+  top: -999em;
+  left: 0;
+  display: block;
+  white-space: nowrap;
+  padding: 3px 5px;
+  text-indent: 0.8em;
+}
