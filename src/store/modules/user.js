@@ -13,24 +13,23 @@ function getRoutes(menus) {
   let routes = [];
   menus.forEach((currentValue) => {
     let route = {
-      path: currentValue.menuCode,
+      path: currentValue.fullUrl,
       meta:{
-        applicationCode:currentValue.applicationCode,
-        name: currentValue.menuName
+        name: currentValue.resName
       }
     };
-    if(currentValue.pid==''){
-      route.component = util.load('views/layout/Home');
-    }else if(currentValue.pid!=''&&currentValue.children.length>0&&currentValue.menuUrl===''){
-      route.component = util.load('components/common/Context');
+    if(currentValue.resPid=='0'){
+      route.component = util.load('views/layout/mcHome');
+    }else if(currentValue.resPid!='0'&&currentValue.children.length>0&&currentValue.resUrl===''){
+      route.component = util.load('views/layout/context');
     }else{
-      route.component = util.load(currentValue.menuUrl);
+      route.component = util.load(currentValue.resUrl);
     }
     if(currentValue.children.length>0){
       route.children = [{
         path: '',
         hidden: true,
-        redirect:  currentValue.children[0].menuCode
+        redirect:  currentValue.children[0].fullUrl
       },...getRoutes(currentValue.children)]
     }
     routes.push(route);
@@ -76,7 +75,6 @@ const module = {
       if(state.userinfo.menuList){
         state.userinfo.menuList.forEach((obj) =>menus=[...menus,...obj.children]);
       }
-      menus.push({menuName:'欢迎页',menuCode:'/welcome',menuUrl:'/welcome',applicationCode:'welcome'})
       return menus
     },
     getRoutes: (state,getters) => {

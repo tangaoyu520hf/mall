@@ -4,7 +4,7 @@
     <!--hd-top end-->
     <div class="header">
       <div class="w1200 clearfix">
-        <a href="index.html" class="lz-logo"></a>
+        <router-link to="/" class="lz-logo"></router-link>
         <div class="lz-search">
           <div class="functionbox">
             <ul>
@@ -34,12 +34,12 @@
         <!--search end-->
         <div class="zl-nav">
           <ul id="top-nav">
-            <li><a href="index.html">首页</a></li>
+            <li><router-link to="/">首页</router-link></li>
             <li><a href="mall">商城</a></li>
             <li><a href="supplyHall">供应大厅</a></li>
             <li><a href="purchaseHall">求购大厅</a></li>
             <li><a href="logistics-sources.html">物流服务</a></li>
-            <li><a href="infoServices-notice.html">资讯服务</a></li>
+            <li><a href="articleCatalog">资讯服务</a></li>
           </ul>
         </div>
         <!--nav end-->

@@ -15,31 +15,11 @@
               <h2 class='infoBox-navtit'>{{$t('helpCenter')}}</h2>
 
               <div class='vnavbox' v-for='(helpCenterList, key, indexType) in helpType'>
-                <div class='vtitle' v-if='indexType == 0'>
-                  <em class='v v02'></em>{{ helpCenterList[0].dictName }}
-                </div>
-                <div class='vtitle' v-else>
+                <div class='vtitle'>
                   <em class='v v01'></em>{{ helpCenterList[0].dictName }}
                 </div>
 
-                <div class='vcon' v-if='indexType == 0'>
-                  <ul class='vconlist clearfix' style='display:block;'>
-                    <dd v-for='(helpCenter, index) in helpCenterList'>
-                      <div v-if='index == 0'>
-                        <input type='hidden' :value='helpCenter.id' id='helpCenterMenuIndex'>
-                        <li class='select' :data-value='helpCenter.id'>
-                          <a href='javascript:;'>{{ helpCenter.title }}</a>
-                        </li>
-                      </div>
-                      <div v-else>
-                        <li class='' :data-value='helpCenter.id'>
-                          <a href='javascript:;'>{{ helpCenter.title }}</a>
-                        </li>
-                      </div>
-                    </dd>
-                  </ul>
-                </div>
-                <div class='vcon' v-else>
+                <div class='vcon'>
                   <ul class='vconlist clearfix' style='display:none;'>
                     <dd v-for='(helpCenter, index) in helpCenterList'>
                       <li class='' :data-value='helpCenter.id'>
@@ -65,17 +45,14 @@
   </div>
 </template>
 <script>
-  import 'static/js/index';
-
   export default {
     name: 'helpCenter',
     beforeCreate(){
     },
     created(){
-
       this.$validator.setLocale('zh_CN');
 
-      this.$http.post(this.sys + '/helpCenter/ui/list')
+      this.$http.post(this.sys + '/api/helpCenter/list')
         .then(res => {
           this.helpType = res.data.data;
 
@@ -85,7 +62,17 @@
               $(this).next('div.vcon').children('ul.vconlist').toggle();
             });
             var vue = this;
-            vue.getData($('#helpCenterMenuIndex').val())
+            var helpId=this.$route.params.helpId;
+            if(helpId){
+              $('li[data-value='+helpId+']').addClass('select');
+              $('li[data-value='+helpId+']').parents('ul.vconlist').toggle();
+            }else{
+              $('ul.vconlist:first').find('li:first').addClass('select');
+              $('em.v:first').toggleClass('v02');
+              $('ul.vconlist:first').toggle();
+              helpId=$('ul.vconlist:first').find('li:first').attr('data-value');
+            }
+            vue.getData(helpId);
 
             $(this.$el).find('ul.vconlist').on('click', 'li', function () {
               $('ul.vconlist li.select').removeClass('select');
@@ -101,9 +88,19 @@
         helpCenter: {}
       }
     },
+    watch: {
+      '$route' (to) {
+        $('em.v.v02').removeClass('v02');
+        $('ul.vconlist').css('display','none')
+        var li=$('li[data-value='+to.params.helpId+']');
+        li.parents('em.v').toggleClass('v02').toggleClass('v01');
+        li.parents('ul.vconlist').toggle();
+        li.click();
+      }
+    },
     methods: {
       getData(id){
-        this.$http.post(this.sys + '/helpCenter/getHelpCenter?id=' + id, {id: id})
+        this.$http.post(this.sys + '/api/helpCenter/getHelpCenter?id=' + id, {id: id})
           .then(res => {
             this.helpCenter = res.data.data
           })

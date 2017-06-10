@@ -8,55 +8,18 @@
             <h2><i class="icons icon-link"></i>友情链接</h2>
             <div class="footernav-txt clearfix">
               <ul>
-                <li><a href="javascript:void(0);">淄博市煤炭工业管理局</a></li>
-                <li><a href="javascript:void(0);">商赢人才网</a></li>
-                <li><a href="javascript:void(0);">中国煤炭网</a></li>
+                <li v-for="nav in navigation"><a :href="nav.url" :target="nav.openType">{{nav.navigationName}}</a></li>
               </ul>
             </div>
           </div>
           <!--友情链接 end-->
-          <div class="supply-wh">
-            <h2><i class="icons icon-supply"></i>供给方</h2>
+          <div class="help-wh" v-for="(value, key) in help">
+            <h2><i :class="key"></i>{{value.type.dictName}}</h2>
             <div class="footernav-txt clearfix">
               <ul>
-                <li><a href="javascript:void(0);">如何发布挂牌商品</a></li>
-                <li><a href="javascript:void(0);">如何参与竟价交易</a></li>
-                <li><a href="javascript:void(0);">如何使用金融服务</a></li>
-                <li><a href="javascript:void(0);">如何使用物流服务</a></li>
-              </ul>
-            </div>
-          </div>
-          <!--供给方 end-->
-          <div class="demand-wh">
-            <h2><i class="icons icon-demand"></i>需求方</h2>
-            <div class="footernav-txt clearfix">
-              <ul>
-                <li><a href="javascript:void(0);">如何发布挂牌商品</a></li>
-                <li><a href="javascript:void(0);">如何参与竟价交易</a></li>
-                <li><a href="javascript:void(0);">如何使用金融服务</a></li>
-                <li><a href="javascript:void(0);">如何使用物流服务</a></li>
-              </ul>
-            </div>
-          </div>
-          <!--需求方 end-->
-          <div class="logistics-wh">
-            <h2><i class="icons icon-logistics"></i>物流方</h2>
-            <div class="footernav-txt clearfix">
-              <ul>
-                <li><a href="javascript:void(0);">如何登记</a></li>
-                <li><a href="javascript:void(0);">如何发布物流价格</a></li>
-              </ul>
-            </div>
-          </div>
-          <!--物流方 end-->
-          <div class="help-wh">
-            <h2><i class="icons icon-help"></i>帮助中心</h2>
-            <div class="footernav-txt clearfix">
-              <ul>
-                <li><a href="javascript:void(0);">关于我们</a></li>
-                <li><a href="javascript:void(0);">注册流程</a></li>
-                <li><a href="findPersonal-step1.html">如何找回密码</a></li>
-                <li><a href="javascript:void(0);">如何注册平台资金账户</a></li>
+                <li v-for="item in value.list">
+                  <router-link :to="{ name: 'helpCenterView', params: { helpId: item.helpId }}">{{item.title}}</router-link>
+                </li>
               </ul>
             </div>
           </div>
@@ -79,7 +42,7 @@
     <div class="footer-copyright">
       <div class="w1200 clearfix">
         <div class="footer-copyrightbox">
-          <p>Copyright © 2016 中软国际 版权所有 </p>
+          <p>{{$store.state.setting['COPYRIGHT']}}</p>
         </div>
       </div>
     </div>
@@ -92,7 +55,23 @@
     name: 'footer',
     data () {
       return {
-
+        navigation:[],
+        help:[]
+      }
+    },
+    created(){
+      this.loadData();
+    },
+    methods: {
+      loadData(){
+        this.$http.post(this.sys+'/api/index/navigation')
+          .then(res => {
+            this.navigation=res.data.data
+          })
+        this.$http.post(this.sys+'/api/index/help')
+          .then(res => {
+            this.help=res.data.data
+          })
       }
     }
   }

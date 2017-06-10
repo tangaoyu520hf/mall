@@ -23,7 +23,7 @@
               <p><i class='icons icon-blockplace'></i>所在地：山东淄川经济开发区高新技术创业中心7号楼</p>
               <p><i class='icons icon-product'></i>主营产品：煤炭</p>
             </div>
-            <a href='/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016110900003&amp;' class='openbtn'>进入专区</a>
+            <a href='supplyInfo' class='openbtn'>进入专区</a>
           </li>
 
           <li class='mr10'>
@@ -41,7 +41,7 @@
               <p><i class='icons icon-blockplace'></i>所在地：陕西省咸阳市长武县亭口镇亭南村东首</p>
               <p><i class='icons icon-product'></i>主营产品：煤炭</p>
             </div>
-            <a href='/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016111100002&amp;' class='openbtn'>进入专区</a>
+            <a href='supplyInfo' class='openbtn'>进入专区</a>
           </li>
 
           <li class='mr10'>
@@ -59,7 +59,7 @@
               <p><i class='icons icon-blockplace'></i>所在地：陕西省咸阳市长武县彭公镇齐宇河村</p>
               <p><i class='icons icon-product'></i>主营产品：煤炭</p>
             </div>
-            <a href='/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016111100004&amp;' class='openbtn'>进入专区</a>
+            <a href='supplyInfo' class='openbtn'>进入专区</a>
           </li>
 
           <li>
@@ -77,7 +77,7 @@
               <p><i class='icons icon-blockplace'></i>所在地：济宁市嘉祥县嘉祥镇</p>
               <p><i class='icons icon-product'></i>主营产品：煤炭</p>
             </div>
-            <a href='/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016112300002&amp;' class='openbtn'>进入专区</a>
+            <a href='supplyInfo' class='openbtn'>进入专区</a>
           </li>
 
           <li class='mr10'>
@@ -95,7 +95,7 @@
               <p><i class='icons icon-blockplace'></i>所在地：淄博市淄川区淄矿路133号</p>
               <p><i class='icons icon-product'></i>主营产品：煤炭等</p>
             </div>
-            <a href='/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016120100004&amp;' class='openbtn'>进入专区</a>
+            <a href='supplyInfo' class='openbtn'>进入专区</a>
           </li>
 
           <li class='mr10'>
@@ -113,7 +113,7 @@
               <p><i class='icons icon-blockplace'></i>所在地：淄川区淄矿路125号</p>
               <p><i class='icons icon-product'></i>主营产品：煤炭、钢材、金属制品、化工产品</p>
             </div>
-            <a href='/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016120200001&amp;' class='openbtn'>进入专区</a>
+            <a href='supplyInfo' class='openbtn'>进入专区</a>
           </li>
 
           <li class='mr10'>
@@ -131,7 +131,7 @@
               <p><i class='icons icon-blockplace'></i>所在地：东胜区鄂尔多斯东街18号街坊（市建委西）</p>
               <p><i class='icons icon-product'></i>主营产品：煤炭</p>
             </div>
-            <a href='/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016122700005&amp;' class='openbtn'>进入专区</a>
+            <a href='supplyInfo' class='openbtn'>进入专区</a>
           </li>
 
           <li>
@@ -149,7 +149,7 @@
               <p><i class='icons icon-blockplace'></i>所在地：内蒙古自治区鄂尔多斯市乌审旗乌兰陶勒盖前进村</p>
               <p><i class='icons icon-product'></i>主营产品：煤炭</p>
             </div>
-            <a href='/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016122900001&amp;' class='openbtn'>进入专区</a>
+            <a href='supplyInfo' class='openbtn'>进入专区</a>
           </li>
 
         </ul>
@@ -318,7 +318,7 @@
                     <th width="10%">操作</th>
                   </tr>
                   </thead>
-                  <tbody id="quoteBody"><tr><td style="position: relative;">动力煤</td><td>贸易商001动力煤001</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016121500006">贸易商001</a></td><td>3333</td><td>上海 上海市 黄浦区</td><td>12</td><td>1</td><td>2017-06-10</td><td><a href="/webshop/supplyHall/quoteDetailPg.do?quoteNo=GPD201705250001&amp;merchantId=SJ2016121500006&amp;" class="detailbtn-green">详细</a></td></tr><tr><td style="position: relative;">动力煤</td><td>娄底动力煤</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016120700003">娄底煤炭贸易有限责任公司</a></td><td>3000</td><td>湖南 娄底 双峰县</td><td>59000</td><td>1000</td><td>2017-12-22</td><td><a href="/webshop/supplyHall/quoteDetailPg.do?quoteNo=GPD201612070001&amp;merchantId=SJ2016120700003&amp;" class="detailbtn-green">详细</a></td></tr></tbody>
+                  <tbody id="quoteBody"><tr><td style="position: relative;">动力煤</td><td>贸易商001动力煤001</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016121500006">贸易商001</a></td><td>3333</td><td>上海 上海市 黄浦区</td><td>12</td><td>1</td><td>2017-06-10</td><td><a href="quoteDetail" class="detailbtn-green">详细</a></td></tr><tr><td style="position: relative;">动力煤</td><td>娄底动力煤</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016120700003">娄底煤炭贸易有限责任公司</a></td><td>3000</td><td>湖南 娄底 双峰县</td><td>59000</td><td>1000</td><td>2017-12-22</td><td><a href="quoteDetail" class="detailbtn-green">详细</a></td></tr></tbody>
                 </table>
               </div>
               <!--table end-->
@@ -349,7 +349,7 @@
                       <th width="10%">操作</th>
                     </tr>
                     </thead>
-                    <tbody id="biddingBody"><tr><td>动力煤</td><td>动力煤55555</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016120400001">lina60</a></td><td>7500</td><td>北京 东城区</td><td>100</td><td>1.16</td><td class="font-orange">竞价中</td><td><a href="/webshop/supplyHall/biddingDetailPg.do?biddingCode=JJD201701050003&amp;merchantId=SJ2016120400001&amp;" class="detailbtn-green">详细</a></td></tr><tr><td>动力煤</td><td>末煤</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016111500004">陕西长武亭南煤业有限责任公司</a></td><td>5800</td><td>陕西 咸阳 长武县</td><td>100</td><td>1</td><td class="font-orange">竞价中</td><td><a href="/webshop/supplyHall/biddingDetailPg.do?biddingCode=JJD201611220004&amp;merchantId=SJ2016111500004&amp;" class="detailbtn-green">详细</a></td></tr><tr><td>炼焦煤</td><td>炼焦煤260</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016120400001">lina60</a></td><td>2600</td><td>北京 东城区 是电风扇的</td><td>190</td><td>6</td><td class="font-orange">竞价中</td><td><a href="/webshop/supplyHall/biddingDetailPg.do?biddingCode=JJD201612050003&amp;merchantId=SJ2016120400001&amp;" class="detailbtn-green">详细</a></td></tr><tr><td>无烟煤</td><td>无烟煤2</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016110700005">平安测试零三八六零</a></td><td>2000</td><td>吉林 长春 南关区</td><td>1000</td><td>1</td><td class="font-gray">竞价结束</td><td><a href="/webshop/supplyHall/biddingDetailPg.do?biddingCode=JJD201611070002&amp;merchantId=SJ2016110700005&amp;" class="detailbtn-green">详细</a></td></tr><tr><td>无烟煤</td><td>无烟煤5</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016110700005">平安测试零三八六零</a></td><td>2200</td><td>上海 虹口区</td><td>150</td><td>1</td><td class="font-gray">竞价结束</td><td><a href="/webshop/supplyHall/biddingDetailPg.do?biddingCode=JJD201611070001&amp;merchantId=SJ2016110700005&amp;" class="detailbtn-green">详细</a></td></tr><tr><td>动力煤</td><td>动力煤11</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016110700005">平安测试零三八六零</a></td><td>2100</td><td>上海 普陀区</td><td>160</td><td>1</td><td class="font-gray">竞价结束</td><td><a href="/webshop/supplyHall/biddingDetailPg.do?biddingCode=JJD201611070003&amp;merchantId=SJ2016110700005&amp;" class="detailbtn-green">详细</a></td></tr><tr><td>无烟煤</td><td>无烟煤88</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016110700005">平安测试零三八六零</a></td><td>2100</td><td>黑龙江 哈尔滨 道里区</td><td>130</td><td>1</td><td class="font-gray">竞价结束</td><td><a href="/webshop/supplyHall/biddingDetailPg.do?biddingCode=JJD201611080003&amp;merchantId=SJ2016110700005&amp;" class="detailbtn-green">详细</a></td></tr><tr><td>无烟煤</td><td>无烟煤88</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016110700005">平安测试零三八六零</a></td><td>2100</td><td>北京 东城区</td><td>10</td><td>1</td><td class="font-gray">竞价结束</td><td><a href="/webshop/supplyHall/biddingDetailPg.do?biddingCode=JJD201611080005&amp;merchantId=SJ2016110700005&amp;" class="detailbtn-green">详细</a></td></tr><tr><td>无烟煤</td><td>无烟煤5</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016110700005">平安测试零三八六零</a></td><td>2200</td><td>上海 黄浦区</td><td>100</td><td>3</td><td class="font-gray">竞价完成</td><td><a href="/webshop/supplyHall/biddingDetailPg.do?biddingCode=JJD201611080006&amp;merchantId=SJ2016110700005&amp;" class="detailbtn-green">详细</a></td></tr><tr><td>无烟煤</td><td>无烟煤009</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016110700005">平安测试零三八六零</a></td><td>2000</td><td>北京 东城区</td><td>10</td><td>10</td><td class="font-gray">竞价完成</td><td><a href="/webshop/supplyHall/biddingDetailPg.do?biddingCode=JJD201611110003&amp;merchantId=SJ2016110700005&amp;" class="detailbtn-green">详细</a></td></tr></tbody>
+                    <tbody id="biddingBody"><tr><td>动力煤</td><td>动力煤55555</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016120400001">lina60</a></td><td>7500</td><td>北京 东城区</td><td>100</td><td>1.16</td><td class="font-orange">竞价中</td><td><a href="biddingDetail" class="detailbtn-green">详细</a></td></tr><tr><td>动力煤</td><td>末煤</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016111500004">陕西长武亭南煤业有限责任公司</a></td><td>5800</td><td>陕西 咸阳 长武县</td><td>100</td><td>1</td><td class="font-orange">竞价中</td><td><a href="biddingDetail" class="detailbtn-green">详细</a></td></tr><tr><td>炼焦煤</td><td>炼焦煤260</td><td><a href="/webshop/enterpriseStore/supplyInfoPg.do?merchantId=SJ2016120400001">lina60</a></td><td>2600</td><td>北京 东城区 是电风扇的</td><td>190</td><td>6</td><td class="font-orange">竞价中</td><td><a href="biddingDetail" class="detailbtn-green">详细</a></td></tr></tbody>
 
                   </table>
                 </div>

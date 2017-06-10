@@ -48,7 +48,7 @@ span.mc-yzm-txt input{
  margin-bottom: 20px;min-height: 642px;}
 .mc-right-span-bt {font-size: 16px;color: #000101;border-bottom: 2px solid #036db8;text-indent: 12px;padding-left: 15px;height: 48px;line-height: 48px;    padding-bottom: 13px;padding-right: 15px;}
 .mc-right-span-bt-nobd {font-size: 16px;color: #000101;border-bottom: 1px solid #F4F4F4;text-indent: 12px;padding-left: 15px;height: 48px;line-height: 48px;    padding-bottom: 13px;padding-right: 15px;}
-.mc-right-ul {float: left;display: table;width: 100%;}
+.mc-right-ul {display: table;width: 100%;}
 .mc-right-ul-li {display: table;width: 100%;}
 .mc-wdj-table {float: left;width:928px;position: relative;margin-bottom:5px;}
 .mc-gp-mine {float: left;width: 926px;position: relative;	border:1px solid #f8f7f7;	height:40px; line-height:40px;margin-bottom: -1px;}
@@ -753,6 +753,26 @@ p.mc-error{ float:left;color:#fd7700; font-size:12px; line-height:22px; text-ali
 .fy-input-new input {border: 1px #ddd solid;height: 31px;border-radius:4px;line-height: 31px;width:50px;box-sizing: border-box;text-align: center;color: #333;}
 .fy-btn-new {float: left;margin-right: 8px;}
 .fy-btn-new a {height: 31px;line-height: 31px;color: #fff;background-color: #036db8;display: block;width: 40px;border-radius: 4px;}
+/*饿了么 分页样式*/
+ul.el-pager{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  list-style: none;
+  font-size: 0;
+  padding: 0;
+  width:auto;
+  float: none;
+  postion:inherit;
+}
+ul.el-pager li{
+  height: 28px;
+  line-height: 28px;
+  float: none;
+  width:auto;
+  border-bottom: none;
+}
 
 /* 物流管理 */
 .fy-bg2 {display: table;float: right;margin: 5px 0;text-align: center;width: 100%;}

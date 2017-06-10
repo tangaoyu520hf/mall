@@ -7,6 +7,7 @@
 </template>
 
 <script>
+  import {mapMutations} from 'vuex';
   /*import '@/styles/login.css';*/
   import vFooter from '../layout/footer.vue'
   import vHeader from '../layout/header.vue'
@@ -18,6 +19,20 @@
       return {
 
       }
+    },
+    methods: {
+      ...mapMutations([
+        'setSetting'
+      ]),
+      loadData(){
+        this.$http.post(this.sys+'/api/index/setting')
+          .then(res => {
+            this.setSetting(res.data.data);
+          })
+      }
+    },
+    created(){
+      this.loadData();
     }
   }
 </script>

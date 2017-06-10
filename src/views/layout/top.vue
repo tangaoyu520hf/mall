@@ -11,10 +11,10 @@
         <div class="fr hd-righttxt">
           <ul>
             <li><a href="mc-html/my-order-buy.html">我的订单</a></li>
-            <li><a href="aboutUs.html">关于我们</a></li>
-            <li class="noborder"><a href="helpCenter-buyers.html">帮助中心</a></li>
+            <li><a href="aboutUs">关于我们</a></li>
+            <li class="noborder"><a href="helpCenter">帮助中心</a></li>
           </ul>
-          <div class="txt-phone"><i class="icons icon-phone"></i>0533-2221555</div>
+          <div class="txt-phone"><i class="icons icon-phone"></i>{{$store.state.setting['SERVICE_TEL']}}</div>
         </div>
       </div>
     </div>
@@ -26,6 +26,7 @@
   export default {
     name: 'top',
     created(){
+      this.$store.state;
     },
     data () {
       return {}

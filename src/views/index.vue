@@ -24,27 +24,15 @@
         </div>
       </div>
       <!--menu end-->
-      <div class="fullSlide clearfix">
-        <div class="bd">
-          <ul>
-            <li :_src="bannerOne" style="background:#328dcd center 0 no-repeat;"><a href="#"></a></li>
-            <li :_src="bannerTwo" style="background:#DED5A1 center 0 no-repeat;"><a href="#"></a></li>
-            <li :_src="bannerThree" style="background:#B8CED1 center 0 no-repeat;"><a href="#"></a></li>
-          </ul>
-        </div>
-        <div class="hd">
-          <ul></ul>
-        </div>
-        <span class="prev"></span>
-        <span class="next"></span>
-      </div>
+      <v-advert code="advp"></v-advert>
     </div>
     <!--slideBox end-->
     <div class="header-news">
       <div class="w1200 clearfix">
         <h2 class="header-news-title"><i class="icons icon-notice"></i>通知公告：</h2>
-        <ul class="txt-news">
-          <li><a href="infoServices-notice-detail.html"><span class="mr5">{{ notice.createTime }}</span>{{ notice.noticeTitle }}</a>
+        <ul class="txt-news marquee" id="notice">
+          <li v-for="n in notice">
+            <a href="infoServices-notice-detail.html"><span class="mr5">{{ n.createTime }}</span>{{ n.noticeTitle }}</a>
           </li>
         </ul>
         <a href="infoServices-notice.html" class="more-blue">更多>></a>
@@ -663,43 +651,17 @@
 </template>
 
 <script>
-  import  bannerOne from '../assets/images/banner/1.jpg'
-  import  bannerTwo from '../assets/images/banner/2.jpg'
-  import  bannerThree from '../assets/images/banner/3.jpg'
+  import 'static/js/jquery.marquee.min';
+  import vAdvert from '@/views/advert/advert.vue'
 //  var api={
 //      calalogs:'http://localhost:8800/catalog/queryById'
 //  };
 
   export default {
     name: 'index',
+    components:{vAdvert},
     created(){
       /*banner*/
-      this.$nextTick(() => {
-        $(this.$el).find('.fullSlide').hover(
-          function () {
-            $(this).find('.prev,.next').stop(true, true).fadeTo('show', 0.5)
-          },
-          function () {
-            $(this).find('.prev,.next').fadeOut()
-          }
-        )
-        $(this.$el).find('.fullSlide').slide({
-          titCell: '.hd ul',
-          mainCell: '.bd ul',
-          effect: 'fold',
-          autoPlay: true,
-          autoPage: true,
-          trigger: 'click',
-          startFun: function (i) {
-            var curLi = jQuery('.fullSlide .bd li').eq(i)
-            if (curLi.attr('_src')) {
-              let attr = curLi.attr('_src')
-              let imgPath = 'url(' + attr + ')'
-              curLi.css('background-image', imgPath).removeAttr('_src')
-            }
-          }
-        })
-      });
       this.loadData();
     },
     methods: {
@@ -708,17 +670,19 @@
           .then(res => {
             this.catalogs=res.data.data
           })
-        this.$http.post(this.sys+'/admin/notice/top')
+        this.$http.post(this.sys+'/api/index/notice')
           .then(res => {
-            this.notice=res.data.data[0]
+            this.notice=res.data.data
+            this.$nextTick(()=>{
+              $('#notice').marquee({yScroll: 'bottom'});
+            });
           })
       }
     },
     data () {
       return {
-        bannerOne, bannerTwo, bannerThree,
         catalogs: [],
-        notice:{}
+        notice:[]
       }
     },
   }

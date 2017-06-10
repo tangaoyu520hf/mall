@@ -2,7 +2,15 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import routerFunction from './router'
+
+import { Loading, MessageBox, Message } from 'element-ui'
+
+//自定义js
+import 'static/js/index';
+
+//国际化
+import i18n  from './core/i18n'
 
 //表单校验插件
 import './core/validate'
@@ -37,21 +45,31 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error);
 });
 
-
-//自定义js
-import 'static/js/index';
-
-//国际化
-import i18n  from './core/i18n'
-
 Vue.config.productionTip = false
 
-Vue.prototype.pro = '/pro'
-Vue.prototype.sys = '/sys'
+Vue.prototype.moudules={
+  product:'/product',
+  system:'/admin',
+  ecoms:'/ecoms'
+}
+Vue.prototype.pro = '/product'
+Vue.prototype.sys = '/admin'
+Vue.prototype.ecoms = '/ecoms'
+
+//在原型上增加element 相关方法 比如 消息提示
+Vue.use(Loading.directive)
+Vue.prototype.$loading = Loading.service
+Vue.prototype.$msgbox = MessageBox
+Vue.prototype.$alert = MessageBox.alert
+Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$prompt = MessageBox.prompt
+Vue.prototype.$notify = Notification
+Vue.prototype.$message = Message
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
+  router:routerFunction(store),
   store,
   i18n,
   template: '<App/>',

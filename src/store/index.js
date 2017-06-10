@@ -14,7 +14,8 @@ export default new Vuex.Store({
     loading: state => state.loading,
     sidebar: state => state.sidebar,
     menuList: state => state.menuList,
-    userInfo:state => state.userInfo
+    userInfo:state => state.userInfo,
+    setting:state => state.setting,
   },
   state: {
     menuList: {},
@@ -25,8 +26,11 @@ export default new Vuex.Store({
     device: {
       isMobile: false
     },
+    setting:{}
   },
   mutations: {
-
+    setSetting(state,setting){
+      state.setting = setting;
+    }
   }
 });
