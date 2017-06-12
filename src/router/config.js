@@ -20,6 +20,7 @@ export default [{
     path: '/login',
     name: 'login',
     component: util.load('views/login/login'),
+    meta: {notRequire: true}
   }, {
     path: '/register',
     name: 'register',

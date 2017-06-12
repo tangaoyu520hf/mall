@@ -35,11 +35,11 @@
         <div class="zl-nav">
           <ul id="top-nav">
             <li><router-link to="/">首页</router-link></li>
-            <li><a href="mall">商城</a></li>
-            <li><a href="supplyHall">供应大厅</a></li>
-            <li><a href="purchaseHall">求购大厅</a></li>
-            <li><a href="logistics-sources.html">物流服务</a></li>
-            <li><a href="articleCatalog">资讯服务</a></li>
+            <li><router-link to="mall">商城</router-link></li>
+            <li><router-link to="supplyHall">供应大厅</router-link></li>
+            <li><router-link to="purchaseHall">求购大厅</router-link></li>
+            <li><router-link to="logistics-sources.html">物流服务</router-link></li>
+            <li><router-link to="articleCatalog">资讯服务</router-link></li>
           </ul>
         </div>
         <!--nav end-->

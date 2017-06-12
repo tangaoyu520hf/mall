@@ -6,7 +6,8 @@
           <span class="mr5">欢迎来到大宗商品B2B电商平台！</span>
           <router-link to="/"><i class="icons icon-home"></i>首页</router-link>
           <router-link to="/register" class="txt-register">免费注册</router-link>
-          <router-link to="/login" class="txt-login">立即登录</router-link>
+          <a v-if="$store.state.user.userinfo.token" style="cursor: pointer" @click="logout" class="txt-login">退出登录</a>
+          <router-link to="/login" v-else class="txt-login">立即登录</router-link>
         </div>
         <div class="fr hd-righttxt">
           <ul>
@@ -23,6 +24,7 @@
 
 <script>
   /*import '@/styles/login.css';*/
+  import {mapMutations} from 'vuex';
   export default {
     name: 'top',
     created(){
@@ -30,6 +32,11 @@
     },
     data () {
       return {}
+    },
+    methods:{
+      ...mapMutations([
+        'logout'
+      ])
     }
   }
 </script>

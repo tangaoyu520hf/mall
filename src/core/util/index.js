@@ -1,6 +1,8 @@
 /**
  * Created by tangaoyu on 2017/6/2.
  */
+import UUID from 'uuid'
+
 export default {
   /**
    * 懒加载 component
@@ -26,4 +28,7 @@ export default {
       }
     }
   },
+  uuid4(){
+    return UUID.v4();
+  }
 }

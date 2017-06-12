@@ -54,15 +54,17 @@ const module = {
   },
   mutations:{
     setToken(state,token){
-      state.userinfo.token = token
+      //设置token的 直接将原有的直接清0
+      state.userinfo = {token};
       localStorage.set('userinfo',state.userinfo);
     },
     setUserInfo(state,userInfo){
       state.userinfo = {...state.userinfo,...userInfo};
       localStorage.set('userinfo',state.userinfo);
     },
-    logout(){
-      localStorage.set('userinfo',{});
+    logout(state){
+      state.userinfo = {};
+      localStorage.set('userinfo',state.userinfo);
     }
   },
   getters: {
