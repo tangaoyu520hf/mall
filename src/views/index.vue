@@ -32,10 +32,10 @@
         <h2 class="header-news-title"><i class="icons icon-notice"></i>通知公告：</h2>
         <ul class="txt-news marquee" id="notice">
           <li v-for="n in notice">
-            <a href="infoServices-notice-detail.html"><span class="mr5">{{ n.createTime }}</span>{{ n.noticeTitle }}</a>
+            <router-link :to="{ name: 'notice', params: { noticeId: n.noticeId }}"><span class="mr5">{{ n.createTime }}</span>{{ n.noticeTitle }}</router-link>
           </li>
         </ul>
-        <a href="infoServices-notice.html" class="more-blue">更多>></a>
+        <router-link :to="{ name: 'articleCatalog'}" class="more-blue">更多>></router-link>
       </div>
     </div>
     <!--header-news end-->
@@ -666,7 +666,7 @@
     },
     methods: {
       loadData(){
-        this.$http.post(this.pro+'/catalog/menu')
+        this.$http.post(this.pro+'/api/catalog/menu')
           .then(res => {
             this.catalogs=res.data.data
           })
@@ -674,7 +674,9 @@
           .then(res => {
             this.notice=res.data.data
             this.$nextTick(()=>{
-              $('#notice').marquee({yScroll: 'bottom'});
+              $('#notice').marquee({
+                yScroll: 'bottom'
+              });
             });
           })
       }

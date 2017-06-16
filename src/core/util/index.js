@@ -30,5 +30,13 @@ export default {
   },
   uuid4(){
     return UUID.v4();
+  },
+  phoneHide(phone){
+    if(phone)
+      return phone.replace(/(\d{3})(\d{4})(\d{4})/,'$1****$3');
+  },
+  emailHide(email){
+    if(email)
+      return email.replace(/(\w?)(\w+)(\w)(@\w+\.[a-z]+(\.[a-z]+)?)/, '$1****$3$4');
   }
 }

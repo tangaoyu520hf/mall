@@ -19,7 +19,7 @@ class Store {
       throw new Error('key不能是一个对象。')
     }
     var value = this.store.getItem(this.prefix + key)
-    if (value !== null) {
+    if (value !== null&& 'undefined'!=value) {
       value = JSON.parse(value)
     }
     return value

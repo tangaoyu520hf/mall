@@ -25,12 +25,19 @@
           </div>
 
             <div class="infoService-rightside">
-              <div v-if="articleNews==null">
+              <div v-if="isPage">
                 <h2 class="infoService-rightside-tit">
                   <span class="blueline"></span>{{ articleCatalog.name }}</h2>
 
                 <div class="infoService-list">
-                  <ul id="noticeList" v-for='(articleNews, index) in pageData.records'>
+                  <ul  v-if="isNotice" v-for='(notice, index) in pageData.records'>
+                    <li>
+                      <i class="icons icon-infonotice"></i>
+                      <a :data-id="notice.noticeId" @click="getArticleNews(notice.noticeId)" class="infoService-txt fl">{{notice.noticeTitle}}</a>
+                      <span class="infoService-time fr">{{notice.createTime}}</span>
+                    </li>
+                  </ul>
+                  <ul v-if="!isNotice" v-for='(articleNews, index) in pageData.records' >
                     <li>
                       <i class="icons icon-infonotice"></i>
                       <a :data-id="articleNews.newsId" @click="getArticleNews(articleNews.newsId)" class="infoService-txt fl">{{articleNews.title}}</a>
@@ -56,7 +63,12 @@
               <div v-else>
 
                 <h2 class="infoService-rightside-tit"><span class="blueline"></span>{{articleCatalog.name}}</h2>
-                <div class="infoService-detailbox">
+                <div v-if="isNotice" class="infoService-detailbox">
+                  <h1>{{ noticeInfo.noticeTitle }}</h1>
+                  <h4>{{$t('publishTime')}}:{{noticeInfo.createTime}}</h4>
+                  <div class="infoService-detailbox-txt"><strong v-html='noticeInfo.noticeContent'></strong></div>
+                </div>
+                <div v-else class="infoService-detailbox">
                   <h1>{{ articleNews.title }}</h1>
                   <h4>{{$t('publishTime')}}:{{articleNews.publishTime}}</h4>
                   <div class="infoService-detailbox-txt"><strong v-html='articleNews.content'></strong></div>
@@ -74,7 +86,6 @@
         <!--infoService-box end-->
       </div>
     </div>
-  </div>
 </template>
 <script>
   import Vue from 'vue'
@@ -87,9 +98,21 @@
     created(){
       this.$validator.setLocale('zh_CN');
       this.$http.post(this.sys + '/api/articleCatalog/getArticleCatalogTree')
-        .then(res => {this.treeData = res.data.data;
-          this.$nextTick(() => {this.articleCatalog = this.treeData[0];
-            this.checkedKeys(this.articleCatalog.id)})})
+        .then(res => {
+          this.treeData = res.data.data;
+          this.treeData.unshift({
+            id: this.notice,
+            name: this.$t('notice'),
+          });
+          this.$nextTick(() => {
+            this.articleCatalog = this.treeData[0];
+            this.checkedKeys(this.articleCatalog.id)
+            var noticeId = this.$route.params.noticeId;
+            if (noticeId)
+              this.getArticleNews(noticeId)
+          })
+        })
+
     },
     data () {
       return {
@@ -100,7 +123,11 @@
         },
         pageData: {},
         articleCatalog: {},
-        articleNews:null
+        articleNews:{title:'',publishTime:'',content:''},
+        noticeInfo:{noticeTitle:'',createTime:'',noticeContent:''},
+        notice:'notice',
+        isNotice:false,
+        isPage:true,
       };
     },
     methods: {
@@ -108,23 +135,30 @@
         this.articleCatalog = data;
         var param = {
           newsType: data.id,
-          nowPage: 1,
+          current: 1,
           pageSize: 10
         };
-        var querystring = require('querystring');
-        this.$http.post(this.sys + '/api/articleNews/page', querystring.stringify(param))
-            .then(res => {this.pageData=res.data; this.articleNews=null});
+        this.loadPage(param);
       },
       checkedKeys(id) {
         $('span[data-value='+id+']').parent().click();
       },
       getArticleNews(id) {
+        this.isPage=false;
         var param = {
           id: id
         };
         var querystring = require('querystring');
-        this.$http.post(this.sys + '/api/articleNews/getArticleNews', querystring.stringify(param))
-          .then(res => {this.articleNews=res.data.data});
+        if (this.isNotice)
+          this.$http.post(this.sys + '/api/notice/view', querystring.stringify(param))
+            .then(res => {
+              this.noticeInfo = res.data.data
+            });
+        else
+          this.$http.post(this.sys + '/api/articleNews/getArticleNews', querystring.stringify(param))
+            .then(res => {
+              this.articleNews = res.data.data
+            });
       },
       renderContent(h, { node, data }){
         return (
@@ -133,12 +167,22 @@
       handleCurrentChange(val) {
         var param = {
           newsType: this.articleCatalog.id,
-          nowPage: val,
+          current: val,
           pageSize: 10
         };
+        this.loadPage(param);
+      },
+      loadPage(param){
+        this.isPage=true;
         var querystring = require('querystring');
-        this.$http.post(this.sys + '/api/articleNews/page', querystring.stringify(param))
-          .then(res => {this.pageData=res.data; this.articleNews=null});
+        var url = '/api/articleNews/page';
+        this.isNotice=false;
+        if (param.newsType == this.notice){
+          url = '/api/notice/page';
+          this.isNotice=true;
+        }
+        this.$http.post(this.sys + url, querystring.stringify(param))
+          .then(res => {this.pageData=res.data.data; });
       }
     },
     i18n: { // `i18n` option
@@ -146,7 +190,8 @@
         ch: {
           currentLocation: '当前位置',
           articleCatalog: '资讯服务',
-          publishTime: '发布时间'
+          publishTime: '发布时间',
+          notice: '商城公告'
         }
       }
     }

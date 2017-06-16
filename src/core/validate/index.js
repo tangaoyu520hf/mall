@@ -4,6 +4,7 @@
 import Vue from 'vue'
 import VeeValidate,{Validator} from 'vee-validate'
 import cn from 'vee-validate/dist/locale/zh_CN'
+import custom from './custom'
 
 Validator.addLocale(cn);
 
@@ -11,7 +12,7 @@ Validator.extend('complexityPwd', {
   messages: {
     zh_CN: field => field + '要求包含大小写字母及数字组合！'
   },
-  validate: value => (/[A-Z]+/.test(value) && /[a-z]+/.test(value) && /[0-9]+/.test(value))
+  validate: custom.complexityPwd
 });
 
 Validator.extend('mobile', {
@@ -45,9 +46,6 @@ Validator.extend('remote', {
     });
   }
 });
-
-
-
 
 const dictionary = {
   zh_CN: {

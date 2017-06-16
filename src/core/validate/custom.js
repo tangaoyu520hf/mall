@@ -18,5 +18,6 @@ export default {
     } else {
       callback();
     }
-  }
+  },
+  complexityPwd: value => (/[A-Z]+/.test(value) && /[a-z]+/.test(value) && /[0-9]+/.test(value))
 }

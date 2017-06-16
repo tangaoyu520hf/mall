@@ -66,6 +66,8 @@
         </el-form-item>
       </el-form>
 
+      <umeditor v-model="formData.productDetail"></umeditor>
+
     </div>
     <!--商品基本信息 end-->
   </div>
@@ -78,6 +80,7 @@
   import Vue from 'vue'
   import util from '@/core/util'
   import validate from '@/core/validate/custom'
+  import umeditor from '@/components/umeditor/umeditor.vue'
   import {
     Button,
     Select,
@@ -109,6 +112,7 @@
       this.getDataList();
       this.getAreaDataList();
     },
+    components:{umeditor},
     data () {
       return {
         formData: {
@@ -117,7 +121,8 @@
           catalogId: null,
           productIndexList: [],
           productName: '',
-          place:''
+          place:'',
+          productDetail:''
         },
         catalogTree: [],
         areaList:[],

@@ -76,10 +76,13 @@
           </template>
         </template>
 
+        <umeditor v-model="formData.productDetail"></umeditor>
+
         <el-form-item>
           <el-button type="primary" @click="submitForm('formData')">提交</el-button>
         </el-form-item>
       </el-form>
+
 
     </div>
     <!--商品基本信息 end-->
@@ -89,6 +92,7 @@
 <script>
   /*import '@/styles/login.css';*/
   import validate from '@/core/validate/custom'
+  import umeditor from '@/components/umeditor/umeditor.vue'
   import Vue from 'vue'
   import {
     Button,
@@ -120,13 +124,15 @@
     created(){
       this.getDataList();
     },
+    components:{umeditor},
     data () {
       return {
         formData: {
           catalogId: null,
           productIndexList: [],
           productName: '',
-          place:''
+          place:'',
+          formData:''
         },
         catalogTree: [],
         areaList:[],

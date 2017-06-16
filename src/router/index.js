@@ -14,17 +14,17 @@ export default (store)=>{
   });
 
   router.beforeEach((to, from, next) => {
-    let token = store.state.user.userinfo.token;
+    let token = store.state.user.tokenInfo.token;
+    //如果用户已经登录并且访问的页面又是登录页面则直接跳转到首页
+    if(token && to.path === '/login'){
+      next({
+        path: '/',
+      })
+      return;
+    }
     //如果直接是公开的 则直接就 next
     if(to.matched.some(record => record.meta.notRequire)){
-      //如果用户已经登录并且访问的页面又是登录页面则直接跳转到登录界面
-      if(token && to.path === '/login'){
-        next({
-          path: '/login',
-        })
-      }else{
-        next();
-      }
+      next();
     }else{
       //用户没有登录 但是访问的页面又不是登录页面 则跳转到登录
       if (!token && to.path !== '/login') {
@@ -33,14 +33,7 @@ export default (store)=>{
           params: {redirect: to.path}
         })
       } else{
-        //如果已经登录 但是访问页面又是 登录 则直接跳转到 欢迎页
-        if ( to.path === '/login') {
-          next({
-            path: '/'
-          });
-        } else {
-          next();
-        }
+        next();
       }
     }
   })

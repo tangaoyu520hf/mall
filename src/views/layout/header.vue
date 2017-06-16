@@ -39,7 +39,7 @@
             <li><router-link to="supplyHall">供应大厅</router-link></li>
             <li><router-link to="purchaseHall">求购大厅</router-link></li>
             <li><router-link to="logistics-sources.html">物流服务</router-link></li>
-            <li><router-link to="articleCatalog">资讯服务</router-link></li>
+            <li><router-link :to="{ name: 'articleCatalog'}">资讯服务</router-link></li>
           </ul>
         </div>
         <!--nav end-->

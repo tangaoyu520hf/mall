@@ -88,9 +88,9 @@
               if(response.data.respCode!='200'){
                 this.errors.add('errMsg',response.data.respMsg)
               }else{
-                let token = response.data.data;
-                this.setToken(token)
-                this.$router.push('/');
+/*                let token = response.data.data;
+                this.setToken(token)*/
+                this.$router.push('/login');
               }
             });
           }

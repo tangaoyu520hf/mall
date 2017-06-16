@@ -3,7 +3,8 @@
  */
 import { localStorage } from '@/core/localStore'
 import util from '@/core/util'
-
+import Vue from 'vue'
+import {moudules} from '@/config'
 /**
  * 获取路由菜单
  * @param data
@@ -40,6 +41,7 @@ function getRoutes(menus) {
 const module = {
   state:{
     //登录成功后的用户信息
+    tokenInfo:localStorage.get('tokenInfo')||{},
     userinfo: localStorage.get('userinfo') || {},
     menuListByApplicaion:[],
     //记住密码相关信息，现在暂且只做记住一个账号密码
@@ -55,16 +57,22 @@ const module = {
   mutations:{
     setToken(state,token){
       //设置token的 直接将原有的直接清0
-      state.userinfo = {token};
-      localStorage.set('userinfo',state.userinfo);
+      state.tokenInfo = token;
+      localStorage.set('tokenInfo',state.tokenInfo);
     },
     setUserInfo(state,userInfo){
-      state.userinfo = {...state.userinfo,...userInfo};
+      state.userinfo = {...userInfo};
+      localStorage.set('userinfo',state.userinfo);
+    },
+    setUserInfoDetail(state,userInfo){
+      state.userinfo = {...state.userinfo,...userInfo}
       localStorage.set('userinfo',state.userinfo);
     },
     logout(state){
       state.userinfo = {};
+      state.tokenInfo = {};
       localStorage.set('userinfo',state.userinfo);
+      localStorage.set('tokenInfo',state.tokenInfo);
     }
   },
   getters: {
@@ -82,6 +90,25 @@ const module = {
     getRoutes: (state,getters) => {
       return getRoutes(getters.getTopMenus);
     },
+    getUserInfo:(state) =>{
+      return state.userinfo
+    }
   },
+  actions: {
+    logout ({ commit }) {
+      return new Promise((resolve, reject) => {
+        Vue.axios.post(moudules.system+'/api/user/logout').then(response => {
+          if(response.data.respCode=='200'){
+            commit('logout')
+            resolve();
+          }else{
+            reject(response.data);
+          }
+        }).catch((error)=>{
+          reject(error);
+        })
+      })
+    }
+  }
 }
 export default module

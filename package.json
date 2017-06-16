@@ -18,7 +18,8 @@
     "vue-axios": "^2.0.2",
     "vue-i18n": "^7.0.0",
     "vue-router": "^2.3.1",
-    "vuex": "^2.3.1"
+    "vuex": "^2.3.1",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

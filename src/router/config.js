@@ -57,6 +57,11 @@ export default [{
     component: util.load('views/purchaseHall/purchaseHall'),
     meta: {notRequire: true}
   },{
+    path: '/notice/:noticeId',
+    name: 'notice',
+    component: util.load('views/articleCatalog/articleCatalog'),
+    meta: {notRequire: true}
+  },{
     path: '/articleCatalog',
     name: 'articleCatalog',
     component: util.load('views/articleCatalog/articleCatalog'),
@@ -100,6 +105,7 @@ export default [{
 }, {
   path: '/mcHome',
   component: util.load('views/layout/mcHome'),
+  redirect: '/accountManage/mcPersonalnfo',
   children: [{
     path: '/productManage/updateProduct/:productId',
     component: util.load('views/memberCentre/productManage/editProduct'),
@@ -108,5 +114,9 @@ export default [{
     path: '/productManage/productDetail/:productId',
     component: util.load('views/memberCentre/productManage/editProduct'),
     meta:{name:'商品详情',permission:'myProduct:view'}
+  },{
+    path: '/activationEmail',
+    component: util.load('views/memberCentre/accountManage/activationEmail'),
+    meta:{name:'邮件激活'}
   }]
 }]

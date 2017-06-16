@@ -27,7 +27,7 @@
     },
     methods: {
       loadData(){
-        this.$http.post(this.ecoms+'/advert/list4Code?advertPositionCode='+this.code)
+        this.$http.post(this.ecoms+'/api/advert/list4Code?advertPositionCode='+this.code)
           .then(res => {
             this.advert=res.data.data
             var array=this.advert.advertList;

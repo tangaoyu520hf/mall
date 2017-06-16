@@ -50,15 +50,31 @@
       login(){
         this.$validator.validateAll().then(result => {
           if (result) {
-            this.$http.post('admin/api/user/login', this.data).then(response => {
+            this.$http.post(this.moudules.system+'/api/user/login', this.data).then(response => {
               if(response.data.respCode!='200'){
                 this.errors.add('errMsg',response.data.respMsg)
               }else{
-                let userInfo = response.data.data;
-                userInfo.menuList = userInfo.resources;
-                delete userInfo.resources
-                this.setUserInfo(userInfo)
-                this.$router.push('/');
+                //设置登录token以及过期时间
+                this.setToken(response.data.data)
+                //获取用户信息及用户权限信息
+                this.$http.get(this.moudules.system+'/user/info').then(response => {
+                  let userInfo = response.data.data;
+                  userInfo.menuList = userInfo.menus || [];
+                 /* userInfo.roleFunctions = response.data.data.roleFunctionDTOS || {};*/
+                  this.setUserInfo(userInfo)
+                  //动态添加路由
+                  this.$router.addRoutes(this.$store.getters.getRoutes);
+                  var redirect = this.$route.params.redirect;
+                  if (redirect) {
+                    this.$router.push(redirect);
+                  } else {
+                    this.$router.push('/');
+                  }
+                }).catch(()=>{
+                  //登录之后如果获取个人信息失败则将token置空
+                  this.setToken('');
+                })
+
               }
             });
           }
