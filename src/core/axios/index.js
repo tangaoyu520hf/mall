@@ -29,37 +29,38 @@ export default (store,router)=>{
         title: '请求超时',
         message: '服务器太久没有响应, 请重试!'
       })
-    }
-    let data = response.data
-    switch (data.status) {
-      case 400:
-        //TODO 后续可以处理一下后台的格式
-        Promise.reject(error);
-        break;
-      case 401:
-        //TODO 直接跳转到没有权限的界面
-        router.push('/login');
-        break;
-      case 403:
-        store.dispatch('logout').then(()=>{
+    }else{
+      let data = response.data
+      switch (data.status) {
+        case 400:
+          //TODO 后续可以处理一下后台的格式
+          Promise.reject(error);
+          break;
+        case 401:
+          //TODO 直接跳转到没有权限的界面
           router.push('/login');
-        });
-        break;
-      case 404:
-        Notification.error({
-          title: '404',
-          message: data.path+'地址没有找到'
-        });
-        break;
-      default:
-        if(process.env.NODE_ENV==='development'){
-          Notification.error({
-            title: '服务器错误',
-            message: data.message
+          break;
+        case 403:
+          store.dispatch('logout').then(()=>{
+            router.push('/login');
           });
-        }else{
-          //TODO 后续可以实现异常信息上报
-        }
+          break;
+        case 404:
+          Notification.error({
+            title: '404',
+            message: data.path+'地址没有找到'
+          });
+          break;
+        default:
+          if(process.env.NODE_ENV==='development'){
+            Notification.error({
+              title: '服务器错误',
+              message: data.message
+            });
+          }else{
+            //TODO 后续可以实现异常信息上报
+          }
+      }
     }
     return Promise.reject(error);
   });

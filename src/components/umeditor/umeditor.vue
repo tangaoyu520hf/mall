@@ -4,7 +4,7 @@
 
 <script>
   import 'static/plugins/umeditor1.2.3/themes/default/css/umeditor.min.css'
-  import 'static/plugins/umeditor1.2.3/third-party/template.min';
+ /* import 'static/plugins/umeditor1.2.3/third-party/template.min';   此处代码被放置在index.html中 因为放在此处会报eptl未定义*/
   import 'static/plugins/umeditor1.2.3/umeditor.config';
   import 'static/plugins/umeditor1.2.3/umeditor.min';
   import 'static/plugins/umeditor1.2.3/lang/zh-cn/zh-cn'
@@ -40,6 +40,12 @@
           this.$emit('ready', this.editor);
         }.bind(this));
       });
+    },
+    beforeDestroy () {
+      // 组件销毁的时候，要销毁 UEditor 实例
+      if (this.editor !== null && this.editor.destroy) {
+        this.editor.destroy();
+      }
     },
   }
 </script>
